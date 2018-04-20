@@ -1,0 +1,132 @@
+Sample Output.txt
+
+1.	Turn in the vector representation of the query (10 points per weighting scheme), and the top 5 documents for the query under both weighting schemes (50 points, with 25 points per weighting scheme). You are also required to present the vector representations for each of the first 5 ranked documents.
+Answer:: Please open the top5Vector.txt (Query Vector is listed in next answer).
+
+2.	Indicate the rank, score, external document identifier, and headline, for each of the top 5 documents for each query. (5 points)
+
+Answer:: please open the attached file Answer1&Answer2.txt
+
+3.	Identify which documents you think are relevant and non-relevant for each query. (10 points)
+Answer:: 
+
+Query::1 
+Doc Retrieved:: 573, 51, 486, 329, 13, 14   
+Relevant Documents: 051, 013, 329, 486
+Non Relevant Documents: 573, 012
+
+Query::2
+Doc Retrieved:: 12, 14, 51, 781, 746, 172
+Relevant Documents: 012, 746, 051, 172
+Non Relevant Documents: 014, 781
+
+Query::3 
+Doc Retrieved:: 485, 5, 144, 399, 90, 579 
+Relevant Docs: 485, 399, 005, 144
+Non-relevant docs: 579, 090
+
+Query::4
+Doc Retrieved:: 166, 1061, 488, 1189, 185, 1255, 575     
+Relevant Docs: 1061, 166, 488, 1189
+Non-relevant docs: 185, 575, 1255
+
+Query::5 
+Doc Retrieved::103, 625, 943, 1032, 1296, 401, 1147, 163    
+Relevant Docs: 103, 163, 625, 1147
+Non-relevant docs: 401, 1032, 1296, 943
+
+Query::6 
+Doc Retrieved::798, 491, 386, 257, 130, 121, 315      
+Relevant Docs: 798, 491, 257, 315
+Non-relevant docs: 121, 386
+
+Query::7
+Doc Retrieved::492, 124, 57, 373, 1040, 232    
+Relevant Docs: 492, 057,  373
+Non-relevant docs: 124, 1040, 232
+ 
+Query::8
+Doc Retrieved::688, 476, 569, 556, 443, 122, 433, 124, 292, 232
+Relevant Docs: 122, 476, 688, 569 , 443
+Non-relevant docs: 232, 124, 292, 556, 433
+
+Query::9 
+Doc Retrieved::270, 306, 22, 1215, 45, 571, 21
+Relevant Docs: 021, 045, 022, 306, 270
+Non-relevant docs: 1215, 45, 571
+
+Query::10 
+Doc Retrieved::493, 302, 1264, 1143, 1009, 1010, 949    
+Relevant Docs: 493, 949, 302, 1264
+Non-relevant docs: 1010, 1009, 1143
+
+Query::11 
+Doc Retrieved::495, 262, 25, 1327, 1157, 72, 160, 1147 
+Relevant Docs: 495, 1327,  072, 262, 1157
+Non-relevant docs: 160, 25, 1147
+
+Query::12 
+Doc Retrieved::624, 966, 650, 1232, 506, 792, 1289, 798  
+Relevant Docs: 624, 966, 792, 506, 798
+Non-relevant docs: 1289, 1232, 650
+
+Query::13 
+Doc Retrieved::496, 903, 520, 199, 643, 797, 38    
+Relevant Docs: 496, 903, 520, 797
+Non-relevant docs: 038, 199, 643
+
+Query::14 
+Doc Retrieved::739, 46,, 388, 875, 195, 798, 170, 1364, 256  
+Relevant Docs:  46, 739,875, 195, 256
+Non-relevant docs: 046, 388, 798, 170, 1364
+
+Query::15 
+Doc Retrieved::462, 1025, 82, 463, 542                      
+Relevant Docs: 462, 463, 1025
+Non-relevant docs: 82 ,542
+
+Query::16 
+Doc Retrieved::93, 1280, 1286, 498, 869, 927, 1255, 106    
+Relevant Docs: 498, 869, 106, 927, 1286
+Non-relevant docs: 093, 1255 , 1280
+
+Query::17
+Doc Retrieved:: 106, 916, 1108, 373, 1248, 1281, 801    
+Relevant Docs: 106,373,1108, 1248, 801
+Non-relevant docs: 916, 1281
+
+Query::18 
+Doc Retrieved:: 124, 197, 234, 927, 498, 1352    
+Relevant Docs: 197, 498, 234
+Non-relevant docs:124 , 927, 1352
+
+Query::19 
+Doc Retrieved::237, 706, 1279, 82, 927, 1119, 44, 395 
+Relevant Docs: 044, 1119, 1279, 927, 395
+Non-relevant docs: 706, 082, 237
+
+Query::20 
+Doc Retrieved::1371, 500, 44, 270, 123, 458 
+Relevant Docs: 500, 270, 44
+Non-relevant docs: 1371, 458, 123
+
+4.	Describe why the top-ranked non-relevant document for each query did not get a lower score.
+Answer::
+A non-relevant document gets higher rank than a relevant document if a word from the query has more frequent in particular document. This results in more weight than other relevant documents. Considering Weight Scheme-1, irrespective of the whether a word addresses a query, document with high occurrences gets more score and in turn top rank.
+
+5.	Briefly discuss the different affects you notice with the two weighting schemes, either on a query-by-query basis or overall, whichever is most illuminating. For example, you can point out that the weighting scheme seems to be working for this query as well as a list of other queries, but not for some other queries you have noticed. Try to explain why it works and why it does not work.
+Answer::
+
+Weight scheme 1::W1 score gives more weight if a word from a query has more occurrences in a document irrespective of whether it query addressing or not and thus increasing the rank
+
+Weight scheme 2::W2 score for ranking results in more relevant documents on the top. This can be enhanced to some extent by using maxtf in the computation. In weighting scheme-2, tf is used in numerator and denominator, this reduces effect of a single term with more occurrences in the document. Because of this scheme, a document gets higher rank only if it has more matches words with the query
+
+6.	Design Decisions::
+
+1.  On parsing the collection, the Hashmap of lemmas generated from Stanford library have been built, which records the number of occurrence of lemma for each document.
+2.  The maxtf and doclen is captured for each document in the hash map using TermNode class.
+3.  Cosine similarities are calculated using W1 and W2 functions and normalized with respective length vectors.
+4.  Each query on parsing, weight calculated for each word and for that document and the summation of weights of all words gives the score and then we apply the cosine of each of the query for that document and are stored.
+5.  Step 4 is repeated until all the queries are covered for all the documents. Using the Hash maps for indexing saves lot of time during the retrieval. 
+
+

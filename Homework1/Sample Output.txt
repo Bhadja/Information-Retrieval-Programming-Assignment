@@ -1,0 +1,76 @@
+Problem 1 Tokenization::::
+
+1) Number of tokens: 224731
+2) Number of unique tokens: 10252
+3) Number of tokens that occur only once: 4605
+5)Number of average tokens per document: 160
+4) 30 most frequent tokens: 
+1. the	19442
+2. of	12672
+3. and	6660
+4. a	5933
+5. in	4642
+6. to	4529
+7. is	4111
+8. for	3490
+9. are	2427
+10. with	2263
+11. on	1940
+12. at	1834
+13. by	1748
+14. flow	1736
+15. that	1565
+16. an	1386
+17. be	1271
+18. pressure	1133
+19. from	1116
+20. as	1112
+21. this	1080
+22. which	974
+23. number	964
+24. boundary	897
+25. results	885
+26. it	852
+27. mach	816
+28. theory	775
+29. layer	728
+30. was	698
+Time taken to acquire characteristics by this Program: 1358ms
+
+
+Problem 2 Stemming:::::
+
+1) Number of distinct stems: 7485
+2) Number of stems occurring only once: 4605
+4) Number of average stems per document: 160
+3) 30 most frequent stems: 
+1. the	19442
+2. of	12672
+3. and	6660
+4. a	5933
+5. in	4642
+6. to	4529
+7. is	4111
+8. for	3490
+9. ar	2454
+10. with	2263
+11. on	2212
+12. flow	1965
+13. at	1834
+14. by	1748
+15. that	1565
+16. an	1386
+17. be	1368
+18. number	1337
+19. pressur	1308
+20. from	1116
+21. as	1112
+22. result	1086
+23. thi	1080
+24. it	1039
+25. effect	988
+26. which	974
+27. boundari	926
+28. method	883
+29. theori	868
+30. layer	859
